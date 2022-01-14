@@ -7,29 +7,15 @@ public class Calculator {
         this.operation = operation;
     }
 
-    public void calculate(int num1, int num2) {
-        switch(operation) {
-            case '+':
-                System.out.println(num1 + num2);
-                break;
-            case '-':
-                System.out.println(num1 - num2);
-                break;
-            case '*':
-                System.out.println(num1 * num2);
-                break;
-            case '/':
-                System.out.println(num1 / num2);
-                break;
-            case '^':
-                 double result = num1;
-                for (int i = 1; i < num2; i++) {
-                    result *= num1;
-                }
-                System.out.println(result);
-                break;
-            case '%':
-                System.out.println(num1 % num2);
-        }
+    public String calculate(int num1, int num2) {
+        return switch (operation) {
+            case '+' -> String.valueOf(num1 + num2);
+            case '-' -> String.valueOf(num1 - num2);
+            case '*' -> String.valueOf(num1 * num2);
+            case '/' -> String.valueOf(num1 / num2);
+            case '^' -> String.valueOf(Math.pow(num1, num2));
+            case '%' -> String.valueOf(num1 % num2);
+            default -> null;
+        };
     }
 }
